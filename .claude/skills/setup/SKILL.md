@@ -34,42 +34,55 @@ Give them the exact path based on where the project is located. Use the Bash too
 echo "$(pwd)/vault-template"
 ```
 
-### 3. Enable community plugins
+### 3. Create vault folders (safety net)
 
-> "Obsidian might show a message about community plugins. Click **'Trust author and enable plugins'**. This turns on the starter plugins that make the system work."
+Before anything else, make sure all the vault folders exist:
 
-Now walk them through installing the essential plugins. Go to **Settings** (gear icon, bottom-left) > **Community plugins** > **Browse**:
+```bash
+VAULT="vault-template"
+if [ -d "Inbox" ] && [ -d "Notes" ]; then VAULT="."; fi
+mkdir -p "$VAULT"/{Inbox,Notes,Daily,Projects,Archive,Templates}
+```
 
-1. **Calendar** — search "Calendar" by Liam Cain. Install and enable. Shows a calendar in the sidebar for navigating daily notes.
-2. **Dataview** — search "Dataview" by Michael Brenan. Install and enable. Lets the system query your notes.
-3. **Templater** — search "Templater" by SilentVoid. Install and enable. Powers the note templates.
-4. **Terminal** — search "Terminal" by Polyipseity. Install and enable. This lets you run Claude Code directly inside Obsidian — no separate terminal window needed.
-5. **Importer** — search "Importer" by Obsidian. Install and enable. Converts notes from Evernote, Notion, Bear, and other apps into Obsidian format.
+### 4. Enable community plugins
 
-Give click-by-click instructions for each. After all 5 are installed:
+> "Obsidian might show a message about community plugins. Click **'Trust author and enable plugins'**."
 
-> "All plugins are set up. The **Terminal** plugin is especially useful — it lets you talk to me (Claude Code) without leaving Obsidian. To open it, use the command palette (Cmd+P on Mac, Ctrl+P on Windows) and type 'Terminal'. You can also find it in the ribbon on the left."
+Now walk them through installing plugins one at a time. Go to **Settings** (gear icon, bottom-left) > **Community plugins** > **Browse**:
+
+**Required plugins (install these first):**
+
+1. **Calendar** — search "Calendar" by Liam Cain. Click Install, then Enable. This shows a calendar in the sidebar for navigating daily notes.
+2. **Dataview** — search "Dataview" by Michael Brenan. Click Install, then Enable. This lets the system query your notes.
+3. **Templater** — search "Templater" by SilentVoid. Click Install, then Enable. This powers the note templates.
+4. **Importer** — search "Importer" by Obsidian. Click Install, then Enable. This converts notes from Evernote, Notion, Bear, and other apps into Obsidian format.
+
+**Optional but recommended:**
+
+5. **Terminal** — search "Terminal" by Polyipseity. Click Install, then Enable. This lets you run Claude Code directly inside Obsidian so you don't have to switch apps. *This is optional — you can always use the Claude Code desktop app instead.*
+
+> "All plugins are set up! You installed [4 or 5] plugins. Let's move on."
 
 ### 4. Show them the graph
 
 > "Click the **graph icon** in the left sidebar — it looks like a network of connected dots. That's your knowledge graph. Right now it's mostly empty. We're about to change that."
 
-### 5. Switch to running Claude Code inside Obsidian
+### 5. (Optional) Switch to running Claude Code inside Obsidian
 
-Now walk the user through opening Claude Code in the Terminal plugin so they can work from inside Obsidian going forward:
+If the user installed the Terminal plugin, offer this option:
 
-> "Now let's set you up to talk to me from inside Obsidian — that way you never have to switch between apps.
+> "Want to run Claude Code inside Obsidian so you don't have to switch between apps? Here's how:
 >
 > 1. In Obsidian, press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
 > 2. Type **'Terminal: Open'** and press Enter
 > 3. A terminal panel will open at the bottom of Obsidian
 > 4. Type `claude` and press Enter
 >
-> You're now running Claude Code inside Obsidian. From here on, you can talk to me right alongside your notes. You can close the Claude Code desktop app — you won't need it anymore."
+> You're now running Claude Code inside Obsidian — notes on top, me at the bottom."
 
-If the Terminal plugin isn't working or the user has trouble, give them the fallback:
+If they didn't install Terminal, or if it doesn't work, reassure them:
 
-> "If the terminal isn't working, you can always use the Claude Code desktop app pointing at the `vault-template` folder. The Terminal plugin is convenient but not required — everything works either way."
+> "You can keep using the Claude Code desktop app — just make sure it's pointed at the `vault-template` folder. Everything works the same either way. The Terminal plugin is a convenience, not a requirement."
 
 ### 6. Ask about existing notes
 

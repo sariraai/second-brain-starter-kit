@@ -20,7 +20,9 @@ Drop notes, ideas, highlights, and thoughts into a folder. Claude Code reads the
 
 Download it free at [claude.ai/download](https://claude.ai/download). Install it like any other app. You'll need a Claude subscription to use it.
 
-### Step 2: Open this repo in Claude Code
+### Step 2: Get the starter kit
+
+**Option A — Paste the URL (easiest):**
 
 Open the Claude Code desktop app. In the project/folder picker, paste this URL:
 
@@ -28,7 +30,13 @@ Open the Claude Code desktop app. In the project/folder picker, paste this URL:
 https://github.com/sariraai/second-brain-starter-kit
 ```
 
-Claude Code will clone the repo and open it automatically. Then type:
+Claude Code will clone the repo and open it automatically.
+
+**Option B — Download ZIP:**
+
+Click the green **Code** button at the top of this page, then **Download ZIP**. Unzip it to your Desktop or Documents folder. Open the Claude Code desktop app and point it at the unzipped folder.
+
+### Step 3: Type one command
 
 ```
 /setup
