@@ -98,9 +98,34 @@ for plugin in calendar dataview templater-obsidian obsidian-importer terminal; d
 done
 ```
 
-If any plugin failed to download, fall back to manual install instructions for that specific plugin (see step 5 below).
+If any plugin failed to download, fall back to manual install instructions for that specific plugin when the user opens Obsidian (step 6).
 
-### 4. Check if Obsidian is installed
+### 4. Install the Claude Code CLI
+
+The Claude Code desktop app does NOT install the `claude` command-line tool. We need it so the user can type `claude` inside Obsidian's Terminal plugin. Install it now, before the user opens Obsidian, so everything just works when they get there.
+
+```bash
+if ! command -v claude &>/dev/null; then
+  echo "Installing Claude Code CLI..."
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+```
+
+Tell the user while it runs:
+
+> "I'm installing a small helper so you can talk to me from inside Obsidian. This takes about 30 seconds..."
+
+After it completes, verify:
+
+```bash
+command -v claude &>/dev/null && echo "CLI ready" || echo "CLI_FAILED"
+```
+
+If it fails, don't block the flow — note it and come back to it at step 7:
+
+> "The helper didn't install automatically — we'll sort that out in a minute. Let's keep going."
+
+### 5. Check if Obsidian is installed
 
 ```bash
 ls /Applications/Obsidian.app 2>/dev/null || ls "$HOME/AppData/Local/Obsidian" 2>/dev/null || echo "NOT_FOUND"
@@ -108,11 +133,11 @@ ls /Applications/Obsidian.app 2>/dev/null || ls "$HOME/AppData/Local/Obsidian" 2
 
 If not found, tell them:
 
-> "Now we need Obsidian — it's the free app that displays your notes as a beautiful connected graph. Go to **obsidian.md** in your browser and download it. Install it like any other app, then come back and tell me when it's ready."
+> "Now we need Obsidian — it's the free app that displays your notes as a beautiful connected graph. Go to **obsidian.md** in your browser and download it. It's free. Install it like any other app, then come back and tell me when it's ready."
 
 Wait for confirmation before continuing.
 
-### 5. Open the vault in Obsidian
+### 6. Open the vault in Obsidian
 
 Tell the user:
 
@@ -130,66 +155,40 @@ If any plugins failed to download in step 3, walk the user through installing ju
 
 > "One plugin didn't download automatically. Let's install it manually. In Obsidian, go to **Settings** (gear icon, bottom-left) > **Community plugins** > **Browse**. Search for **[plugin name]**, click **Install**, then **Enable**."
 
-### 6. Show them the graph
+### 7. Show them the graph
 
 > "Click the **graph icon** in the left sidebar — it looks like a network of connected dots. That's your knowledge graph. Right now it's mostly empty. We're about to change that."
 
-### 7. Install the Claude Code CLI and switch to Obsidian
+### 8. Switch to Claude Code inside Obsidian
 
-The Terminal plugin is already installed from step 3. But for the `claude` command to work inside Obsidian's terminal, the CLI needs to be on the user's PATH. The desktop app does NOT install the CLI automatically.
-
-First, check if the CLI is already available:
-
-```bash
-which claude 2>/dev/null && echo "CLI_FOUND" || echo "CLI_NOT_FOUND"
-```
-
-**If CLI is found**, skip to opening Terminal in Obsidian below.
-
-**If CLI is not found**, tell the user:
-
-> "One more step before we switch to Obsidian. I need to install the Claude Code command-line tool so it works inside Obsidian's terminal. This is a one-time thing — it takes about 30 seconds."
-
-Then run:
-
-```bash
-curl -fsSL https://claude.ai/install.sh | bash
-```
-
-After it completes, verify:
-
-```bash
-which claude 2>/dev/null && echo "CLI installed successfully" || echo "Installation may have failed"
-```
-
-If the install fails, tell them:
-
-> "The automatic install didn't work. You can install it manually by opening your regular Terminal app (search 'Terminal' in Spotlight on Mac) and pasting this command:
->
-> `curl -fsSL https://claude.ai/install.sh | bash`
->
-> Then come back here and tell me when it's done."
-
-**Once the CLI is confirmed**, walk them through opening it in Obsidian:
+The Terminal plugin and CLI are both installed from earlier steps. Now just show them how to open it:
 
 > "Now let's switch to working inside Obsidian. This is the best part — your notes and your AI assistant, side by side.
 >
-> 1. In Obsidian, press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
+> 1. Press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
 > 2. Type **'Terminal: Open'** and press Enter
 > 3. A terminal panel will open at the bottom of Obsidian
 > 4. Type `claude` and press Enter
 >
 > You're now running Claude Code inside Obsidian — notes on top, me at the bottom. You can close the Claude Code desktop app if you want — everything works from here now."
 
+If `claude` returns "command not found" (the CLI install failed in step 4):
+
+> "Looks like the Claude Code helper didn't install correctly earlier. Let's try again. In the terminal that just opened, paste this command:
+>
+> `curl -fsSL https://claude.ai/install.sh | bash`
+>
+> When it finishes, type `claude` and press Enter."
+
 If they have trouble or prefer not to:
 
-> "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at the vault folder. Everything works the same either way. You can always try the terminal setup later."
+> "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at the vault folder. Everything works the same either way."
 
-### 8. Ask about existing notes
+### 9. Ask about existing notes
 
 > "Do you have notes from somewhere else you'd like to bring in? Apple Notes, Notion, Evernote, Google Docs, or just a folder of files on your computer? If yes, say `/import` and I'll walk you through it. If you're starting fresh, just drop any thought into the `Inbox` folder and say `/process` when you're ready."
 
-### 9. Celebrate
+### 10. Celebrate
 
 > "You're set up! Your second brain is ready. Here's all you need to remember:
 >
