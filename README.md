@@ -78,7 +78,7 @@ Check the `examples/` folder to see 15 real-world notes transformed from messy c
 ## Requirements
 
 - [Obsidian](https://obsidian.md) (free)
-- [Claude Code](https://claude.ai/code) (requires subscription)
+- [Claude Code](https://claude.ai/code) — You'll need a Claude subscription ($20/month). If you want to try it first, ask someone with a subscription to send you a Guest Pass for 7 days free.
 
 *Use Codex, Gemini CLI, or another AI coding assistant? The vault structure and workflow concepts apply — you'd just need to adapt CLAUDE.md to your tool's format.*
 
