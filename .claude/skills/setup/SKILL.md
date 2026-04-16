@@ -31,64 +31,64 @@ mkdir -p "$VAULT"/{Inbox,Notes,Daily,Projects,Archive,Templates}
 
 ### 3. Auto-install community plugins
 
-Download and install the 4 required plugins BEFORE the user opens Obsidian. This way they just click "Trust" once and everything's ready.
+Download and install all 5 community plugins BEFORE the user opens Obsidian. This way they just click "Trust" once and everything's ready.
+
+**Important:** Calendar MUST be pinned to release 1.5.10 — the "latest" release is a beta with plugin ID `calendar-beta` which doesn't match the `community-plugins.json` entry.
 
 ```bash
+VAULT="vault-template"
+if [ -d "Inbox" ] && [ -d "Notes" ]; then VAULT="."; fi
+
 PLUGINS_DIR="$VAULT/.obsidian/plugins"
 
-# Calendar — daily notes sidebar
+# Calendar — pinned to stable 1.5.10 (latest is beta with different plugin ID)
 mkdir -p "$PLUGINS_DIR/calendar"
-curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/latest/download/main.js" \
-  -o "$PLUGINS_DIR/calendar/main.js"
-curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/latest/download/manifest.json" \
-  -o "$PLUGINS_DIR/calendar/manifest.json"
-curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/latest/download/styles.css" \
-  -o "$PLUGINS_DIR/calendar/styles.css"
+curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/1.5.10/main.js" -o "$PLUGINS_DIR/calendar/main.js"
+curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/1.5.10/manifest.json" -o "$PLUGINS_DIR/calendar/manifest.json"
+curl -sL "https://github.com/liamcain/obsidian-calendar-plugin/releases/download/1.5.10/styles.css" -o "$PLUGINS_DIR/calendar/styles.css"
 echo "Installed: Calendar"
 
-# Dataview — note queries
+# Dataview
 mkdir -p "$PLUGINS_DIR/dataview"
-curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/main.js" \
-  -o "$PLUGINS_DIR/dataview/main.js"
-curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/manifest.json" \
-  -o "$PLUGINS_DIR/dataview/manifest.json"
-curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/styles.css" \
-  -o "$PLUGINS_DIR/dataview/styles.css"
+curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/main.js" -o "$PLUGINS_DIR/dataview/main.js"
+curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/manifest.json" -o "$PLUGINS_DIR/dataview/manifest.json"
+curl -sL "https://github.com/blacksmithgu/obsidian-dataview/releases/latest/download/styles.css" -o "$PLUGINS_DIR/dataview/styles.css"
 echo "Installed: Dataview"
 
-# Templater — note templates
+# Templater
 mkdir -p "$PLUGINS_DIR/templater-obsidian"
-curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/main.js" \
-  -o "$PLUGINS_DIR/templater-obsidian/main.js"
-curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/manifest.json" \
-  -o "$PLUGINS_DIR/templater-obsidian/manifest.json"
-curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/styles.css" \
-  -o "$PLUGINS_DIR/templater-obsidian/styles.css"
+curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/main.js" -o "$PLUGINS_DIR/templater-obsidian/main.js"
+curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/manifest.json" -o "$PLUGINS_DIR/templater-obsidian/manifest.json"
+curl -sL "https://github.com/SilentVoid13/Templater/releases/latest/download/styles.css" -o "$PLUGINS_DIR/templater-obsidian/styles.css"
 echo "Installed: Templater"
 
-# Importer — import from other apps
+# Importer
 mkdir -p "$PLUGINS_DIR/obsidian-importer"
-curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/main.js" \
-  -o "$PLUGINS_DIR/obsidian-importer/main.js"
-curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/manifest.json" \
-  -o "$PLUGINS_DIR/obsidian-importer/manifest.json"
-curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/styles.css" \
-  -o "$PLUGINS_DIR/obsidian-importer/styles.css"
+curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/main.js" -o "$PLUGINS_DIR/obsidian-importer/main.js"
+curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/manifest.json" -o "$PLUGINS_DIR/obsidian-importer/manifest.json"
+curl -sL "https://github.com/obsidianmd/obsidian-importer/releases/latest/download/styles.css" -o "$PLUGINS_DIR/obsidian-importer/styles.css"
 echo "Installed: Importer"
 
-echo "All 4 plugins installed."
+# Terminal — run Claude Code inside Obsidian
+mkdir -p "$PLUGINS_DIR/terminal"
+curl -sL "https://github.com/polyipseity/obsidian-terminal/releases/latest/download/main.js" -o "$PLUGINS_DIR/terminal/main.js"
+curl -sL "https://github.com/polyipseity/obsidian-terminal/releases/latest/download/manifest.json" -o "$PLUGINS_DIR/terminal/manifest.json"
+curl -sL "https://github.com/polyipseity/obsidian-terminal/releases/latest/download/styles.css" -o "$PLUGINS_DIR/terminal/styles.css"
+echo "Installed: Terminal"
+
+echo "All 5 plugins installed."
 ```
 
-Update the community-plugins.json to include all 4:
+Update the community-plugins.json to include all 5:
 
 ```bash
-echo '["calendar", "dataview", "templater-obsidian", "obsidian-importer"]' > "$VAULT/.obsidian/community-plugins.json"
+echo '["calendar", "dataview", "templater-obsidian", "obsidian-importer", "terminal"]' > "$VAULT/.obsidian/community-plugins.json"
 ```
 
 Verify the downloads succeeded (check that main.js files are not empty):
 
 ```bash
-for plugin in calendar dataview templater-obsidian obsidian-importer; do
+for plugin in calendar dataview templater-obsidian obsidian-importer terminal; do
   size=$(wc -c < "$PLUGINS_DIR/$plugin/main.js" 2>/dev/null || echo "0")
   if [ "$size" -lt 100 ]; then
     echo "WARNING: $plugin may not have downloaded correctly"
@@ -136,14 +136,14 @@ If any plugins failed to download in step 3, walk the user through installing ju
 
 ### 7. (Optional) Run Claude Code inside Obsidian
 
-> "Want to talk to me from inside Obsidian so you don't have to switch apps? There's a plugin called **Terminal** that lets you do this.
+The Terminal plugin was already installed in step 3. Show the user how to open it:
+
+> "Want to talk to me from inside Obsidian so you don't have to switch apps? The Terminal plugin is already installed. Here's how to open it:
 >
-> 1. In Obsidian, go to **Settings** > **Community plugins** > **Browse**
-> 2. Search for **Terminal** by Polyipseity
-> 3. Click **Install**, then **Enable**
-> 4. Close Settings
-> 5. Press **Cmd+P** (Mac) or **Ctrl+P** (Windows), type **'Terminal: Open'**, press Enter
-> 6. In the terminal that opens, type `claude` and press Enter
+> 1. Press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
+> 2. Type **'Terminal: Open'** and press Enter
+> 3. A terminal panel will open at the bottom of Obsidian
+> 4. Type `claude` and press Enter
 >
 > You're now running Claude Code inside Obsidian — notes on top, me at the bottom."
 
