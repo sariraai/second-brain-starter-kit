@@ -161,14 +161,15 @@ If any plugins failed to download in step 3, walk the user through installing ju
 
 ### 8. Switch to Claude Code inside Obsidian
 
-The Terminal plugin and CLI are both installed from earlier steps. Now just show them how to open it:
+The Terminal plugin and CLI are both installed from earlier steps. Now show them how to open it. **Important:** The command palette method is unreliable — use the sidebar icon instead.
 
-> "Now let's switch to working inside Obsidian. This is the best part — your notes and your AI assistant, side by side.
+> "Now let's get me running inside Obsidian so you don't have to switch between apps.
 >
-> 1. Press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
-> 2. Type **'Terminal: Open'** and press Enter
-> 3. A terminal panel will open at the bottom of Obsidian
-> 4. Type `claude` and press Enter
+> 1. Look at the **left sidebar** in Obsidian. Find the **Terminal icon** — it looks like a small square with a `>_` inside it
+> 2. Click it
+> 3. It will ask which terminal to open — choose **Integrated**
+> 4. A terminal panel will open at the bottom of Obsidian
+> 5. Type `claude` and press Enter
 >
 > You're now running Claude Code inside Obsidian — notes on top, me at the bottom. You can close the Claude Code desktop app if you want — everything works from here now."
 
