@@ -14,35 +14,31 @@ Most people try to build a personal knowledge system and give up within a week. 
 
 Drop notes, ideas, highlights, and thoughts into a folder. Claude Code reads them, adds structure, creates connections between related ideas, and maintains the whole system for you. Over time, a knowledge graph emerges — a web of your thinking that grows smarter the more you use it.
 
-## Quick Start (Two Steps)
+## Quick Start
 
 ### Step 1: Get the Claude Code desktop app
 
-Download it free at [claude.ai/download](https://claude.ai/download). Install it like any other app. You'll need a Claude subscription to use it.
+Download it at [claude.ai/download](https://claude.ai/download). Install it like any other app. You'll need a Claude subscription to use it.
 
-### Step 2: Get the starter kit
+### Step 2: Download this starter kit
 
-**Option A — Paste the URL (easiest):**
+Click the green **Code** button at the top of this page, then click **Download ZIP**. Unzip the folder and put it somewhere easy to find (like your Desktop or Documents folder).
 
-Open the Claude Code desktop app. In the project/folder picker, paste this URL:
+### Step 3: Open the starter kit in Claude Code
 
-```
-https://github.com/sariraai/second-brain-starter-kit
-```
+Open the Claude Code desktop app. When it asks you to choose a project folder, click **Open folder** and select the unzipped `second-brain-starter-kit` folder.
 
-Claude Code will clone the repo and open it automatically.
+If Claude Code is already open, look for a folder icon or project name at the top of the window — click it to switch to a different folder.
 
-**Option B — Download ZIP:**
+### Step 4: Type one command
 
-Click the green **Code** button at the top of this page, then **Download ZIP**. Unzip it to your Desktop or Documents folder. Open the Claude Code desktop app and point it at the unzipped folder.
-
-### Step 3: Type one command
+In the Claude Code chat, type:
 
 ```
 /setup
 ```
 
-That's it. Claude Code reads the instructions in this repo and walks you through everything from there — installing Obsidian, setting up plugins, importing your notes, and getting your first graph connections.
+Claude Code reads the instructions in this folder and walks you through everything from there — installing Obsidian, downloading plugins, importing your notes, and switching to working inside Obsidian with Claude Code built right in.
 
 **By the end of `/setup`, you'll be running Claude Code inside Obsidian** using the Terminal plugin, so you never need a separate terminal window again.
 

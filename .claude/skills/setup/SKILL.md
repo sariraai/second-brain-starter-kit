@@ -134,22 +134,56 @@ If any plugins failed to download in step 3, walk the user through installing ju
 
 > "Click the **graph icon** in the left sidebar — it looks like a network of connected dots. That's your knowledge graph. Right now it's mostly empty. We're about to change that."
 
-### 7. (Optional) Run Claude Code inside Obsidian
+### 7. Install the Claude Code CLI and switch to Obsidian
 
-The Terminal plugin was already installed in step 3. Show the user how to open it:
+The Terminal plugin is already installed from step 3. But for the `claude` command to work inside Obsidian's terminal, the CLI needs to be on the user's PATH. The desktop app does NOT install the CLI automatically.
 
-> "Want to talk to me from inside Obsidian so you don't have to switch apps? The Terminal plugin is already installed. Here's how to open it:
+First, check if the CLI is already available:
+
+```bash
+which claude 2>/dev/null && echo "CLI_FOUND" || echo "CLI_NOT_FOUND"
+```
+
+**If CLI is found**, skip to opening Terminal in Obsidian below.
+
+**If CLI is not found**, tell the user:
+
+> "One more step before we switch to Obsidian. I need to install the Claude Code command-line tool so it works inside Obsidian's terminal. This is a one-time thing — it takes about 30 seconds."
+
+Then run:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+After it completes, verify:
+
+```bash
+which claude 2>/dev/null && echo "CLI installed successfully" || echo "Installation may have failed"
+```
+
+If the install fails, tell them:
+
+> "The automatic install didn't work. You can install it manually by opening your regular Terminal app (search 'Terminal' in Spotlight on Mac) and pasting this command:
 >
-> 1. Press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
+> `curl -fsSL https://claude.ai/install.sh | bash`
+>
+> Then come back here and tell me when it's done."
+
+**Once the CLI is confirmed**, walk them through opening it in Obsidian:
+
+> "Now let's switch to working inside Obsidian. This is the best part — your notes and your AI assistant, side by side.
+>
+> 1. In Obsidian, press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
 > 2. Type **'Terminal: Open'** and press Enter
 > 3. A terminal panel will open at the bottom of Obsidian
 > 4. Type `claude` and press Enter
 >
-> You're now running Claude Code inside Obsidian — notes on top, me at the bottom."
+> You're now running Claude Code inside Obsidian — notes on top, me at the bottom. You can close the Claude Code desktop app if you want — everything works from here now."
 
-If they don't want to or it doesn't work:
+If they have trouble or prefer not to:
 
-> "No worries — you can keep using the Claude Code desktop app. Just make sure it's pointed at the vault folder. Everything works the same either way."
+> "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at the vault folder. Everything works the same either way. You can always try the terminal setup later."
 
 ### 8. Ask about existing notes
 
