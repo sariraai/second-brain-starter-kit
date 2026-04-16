@@ -1,0 +1,15 @@
+# Obsidian workspace files (user-specific)
+vault-template/.obsidian/workspace.json
+vault-template/.obsidian/workspace-mobile.json
+vault-template/.obsidian/plugins/
+vault-template/.obsidian/themes/
+vault-template/.obsidian/hotkeys.json
+vault-template/.obsidian/core-plugins.json
+vault-template/.obsidian/core-plugins-migration.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code local files
+.claude/settings.local.json

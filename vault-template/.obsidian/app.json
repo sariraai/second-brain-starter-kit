@@ -1,0 +1,14 @@
+{
+  "showLineNumber": false,
+  "strictLineBreaks": false,
+  "showFrontmatter": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showInlineTitle": true,
+  "defaultViewMode": "preview",
+  "livePreview": true,
+  "readableLineLength": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Inbox",
+  "attachmentFolderPath": "Archive/attachments"
+}
