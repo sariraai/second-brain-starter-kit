@@ -54,11 +54,28 @@ Give click-by-click instructions for each. After all 5 are installed:
 
 > "Click the **graph icon** in the left sidebar — it looks like a network of connected dots. That's your knowledge graph. Right now it's mostly empty. We're about to change that."
 
-### 5. Ask about existing notes
+### 5. Switch to running Claude Code inside Obsidian
+
+Now walk the user through opening Claude Code in the Terminal plugin so they can work from inside Obsidian going forward:
+
+> "Now let's set you up to talk to me from inside Obsidian — that way you never have to switch between apps.
+>
+> 1. In Obsidian, press **Cmd+P** (Mac) or **Ctrl+P** (Windows) to open the command palette
+> 2. Type **'Terminal: Open'** and press Enter
+> 3. A terminal panel will open at the bottom of Obsidian
+> 4. Type `claude` and press Enter
+>
+> You're now running Claude Code inside Obsidian. From here on, you can talk to me right alongside your notes. You can close the Claude Code desktop app — you won't need it anymore."
+
+If the Terminal plugin isn't working or the user has trouble, give them the fallback:
+
+> "If the terminal isn't working, you can always use the Claude Code desktop app pointing at the `vault-template` folder. The Terminal plugin is convenient but not required — everything works either way."
+
+### 6. Ask about existing notes
 
 > "Do you have notes from somewhere else you'd like to bring in? Apple Notes, Notion, Evernote, Google Docs, or just a folder of files on your computer? If yes, say `/import` and I'll walk you through it. If you're starting fresh, just drop any thought into the `Inbox` folder and say `/process` when you're ready."
 
-### 6. Celebrate
+### 7. Celebrate
 
 > "You're set up! Your second brain is ready. Here's all you need to remember:
 >

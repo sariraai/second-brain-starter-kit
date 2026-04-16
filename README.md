@@ -14,13 +14,29 @@ Most people try to build a personal knowledge system and give up within a week. 
 
 Drop notes, ideas, highlights, and thoughts into a folder. Claude Code reads them, adds structure, creates connections between related ideas, and maintains the whole system for you. Over time, a knowledge graph emerges — a web of your thinking that grows smarter the more you use it.
 
-## Quick Start
+## Quick Start (Two Steps)
 
-1. Download this repo (click **Code > Download ZIP**, or clone it)
-2. Open [Claude Code](https://claude.ai/code) in this folder
-3. Say: **"Run /setup"**
+### Step 1: Get the Claude Code desktop app
 
-Claude Code walks you through everything from there.
+Download it free at [claude.ai/download](https://claude.ai/download). Install it like any other app. You'll need a Claude subscription to use it.
+
+### Step 2: Open this repo in Claude Code
+
+Open the Claude Code desktop app. In the project/folder picker, paste this URL:
+
+```
+https://github.com/sariraai/second-brain-starter-kit
+```
+
+Claude Code will clone the repo and open it automatically. Then type:
+
+```
+/setup
+```
+
+That's it. Claude Code reads the instructions in this repo and walks you through everything from there — installing Obsidian, setting up plugins, importing your notes, and getting your first graph connections.
+
+**By the end of `/setup`, you'll be running Claude Code inside Obsidian** using the Terminal plugin, so you never need a separate terminal window again.
 
 ## What You Get
 
