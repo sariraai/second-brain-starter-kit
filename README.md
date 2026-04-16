@@ -80,6 +80,8 @@ Check the `examples/` folder to see 15 real-world notes transformed from messy c
 - [Obsidian](https://obsidian.md) (free)
 - [Claude Code](https://claude.ai/code) (requires subscription)
 
+*Use Codex, Gemini CLI, or another AI coding assistant? The vault structure and workflow concepts apply — you'd just need to adapt CLAUDE.md to your tool's format.*
+
 ## Privacy
 
 Your notes stay on your computer. Everything is stored as plain text files. Nothing is uploaded to the cloud unless you choose to sync.
