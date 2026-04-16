@@ -157,7 +157,16 @@ The Terminal plugin and CLI are both installed from earlier steps. Now show them
 > 4. A terminal panel will open at the bottom of Obsidian
 > 5. Type `claude` and press Enter
 >
-> You're now running Claude Code inside Obsidian — notes on top, me at the bottom. You can close the Claude Code desktop app if you want — everything works from here now."
+> Claude Code will start up. Here's what to expect:
+>
+> - **It will ask you to log in.** A browser window will open — sign in with the same account you use for Claude. Once you log in, come back to Obsidian.
+> - **It may ask you to accept terms.** Type `yes` and press Enter.
+> - **It will ask you to choose a project folder.** Just press Enter to accept the current folder — it's already the right one.
+> - Once it loads, you'll see a chat prompt. **That's me!** Try saying hello, or type `/morning` to start your first daily note.
+>
+> *(If you've already used Claude Code before and are already logged in, the login and terms steps will be skipped automatically.)*
+>
+> One more thing: you're switching from talking to me in the desktop app to talking to me here in Obsidian. It's the same me — I can read the same files and I know the same commands. You can close the desktop app now. From here on, just open Obsidian and I'm right there at the bottom."
 
 If `claude` returns "command not found" (the CLI install failed in step 3):
 
