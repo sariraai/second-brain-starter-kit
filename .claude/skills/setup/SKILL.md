@@ -168,13 +168,9 @@ The Terminal plugin and CLI are both installed from earlier steps. Now show them
 >
 > One more thing: you're switching from talking to me in the desktop app to talking to me here in Obsidian. It's the same me — I can read the same files and I know the same commands. You can close the desktop app now. From here on, just open Obsidian and I'm right there at the bottom.
 >
-> **Once Claude Code loads in Obsidian, type one of these to get started:**
+> **Your vault is ready and waiting.** The first thing to do in Obsidian is bring in your existing notes — type `/import` and watch your knowledge graph come to life.
 >
-> - `/morning` — to create your first daily note
-> - `/import` — if you have notes from another app to bring in
-> - Or just drop a note into the Inbox folder and say `/process` — to see the magic happen
->
-> That's it. You're set up. Everything from here on happens inside Obsidian."
+> If you're starting completely fresh with no existing notes, drop any thought into the Inbox folder and say `/process` to see how it works."
 
 If `claude` returns "command not found" (the CLI install failed in step 3):
 
