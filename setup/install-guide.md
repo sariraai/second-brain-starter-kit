@@ -11,7 +11,7 @@ Install it like any other app — drag to Applications on Mac, or run the instal
 When you first open Obsidian, it will ask you to create or open a vault. A "vault" is just a fancy word for a folder of notes.
 
 1. Click **"Open folder as vault"**
-2. Navigate to the `vault-template` folder inside this starter kit
+2. Navigate to the `second-brain-starter-kit` folder you downloaded
 3. Select it and click Open
 
 You should see the folder structure on the left: Inbox, Notes, Daily, Projects, Archive, Templates.

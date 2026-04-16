@@ -52,7 +52,7 @@ Based on their answer, guide them through the right import path. There are two t
 - Import to Inbox/, then `/process`.
 
 **Folder of .md or .txt files:**
-- Just copy/move them into `vault-template/Inbox/`. No conversion needed.
+- Just copy/move them into `Inbox/`. No conversion needed.
 - Run `/process`.
 
 **Starting fresh:**
@@ -67,7 +67,7 @@ Once files are in Inbox/, scan and process them:
 1. **List everything in Inbox/**
 
 ```bash
-ls "vault-template/Inbox/"
+ls "Inbox/"
 ```
 
 2. **Read each file** using the Read tool

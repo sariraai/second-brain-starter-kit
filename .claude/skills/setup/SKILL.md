@@ -8,38 +8,24 @@ trigger: /setup
 
 Walk the user through setting up their second brain. They may have never used Obsidian or a terminal before. Be patient, specific, and encouraging.
 
+The repo root IS the vault. All folders (Inbox/, Notes/, Daily/, etc.) are at the top level.
+
 ## Steps
 
-### 1. Detect the vault path
+### 1. Create vault folders (safety net)
 
 ```bash
-if [ -d "vault-template" ]; then
-  VAULT="vault-template"
-elif [ -d "Inbox" ] && [ -d "Notes" ]; then
-  VAULT="."
-else
-  VAULT="vault-template"
-fi
-echo "Vault path: $VAULT"
+mkdir -p Inbox Notes Daily Projects Archive Templates
 ```
 
-### 2. Create vault folders (safety net)
-
-```bash
-mkdir -p "$VAULT"/{Inbox,Notes,Daily,Projects,Archive,Templates}
-```
-
-### 3. Auto-install community plugins
+### 2. Auto-install community plugins
 
 Download and install all 5 community plugins BEFORE the user opens Obsidian. This way they just click "Trust" once and everything's ready.
 
 **Important:** Calendar MUST be pinned to release 1.5.10 — the "latest" release is a beta with plugin ID `calendar-beta` which doesn't match the `community-plugins.json` entry.
 
 ```bash
-VAULT="vault-template"
-if [ -d "Inbox" ] && [ -d "Notes" ]; then VAULT="."; fi
-
-PLUGINS_DIR="$VAULT/.obsidian/plugins"
+PLUGINS_DIR=".obsidian/plugins"
 
 # Calendar — pinned to stable 1.5.10 (latest is beta with different plugin ID)
 mkdir -p "$PLUGINS_DIR/calendar"
@@ -82,7 +68,7 @@ echo "All 5 plugins installed."
 Update the community-plugins.json to include all 5:
 
 ```bash
-echo '["calendar", "dataview", "templater-obsidian", "obsidian-importer", "terminal"]' > "$VAULT/.obsidian/community-plugins.json"
+echo '["calendar", "dataview", "templater-obsidian", "obsidian-importer", "terminal"]' > .obsidian/community-plugins.json
 ```
 
 Verify the downloads succeeded (check that main.js files are not empty):
@@ -98,9 +84,9 @@ for plugin in calendar dataview templater-obsidian obsidian-importer terminal; d
 done
 ```
 
-If any plugin failed to download, fall back to manual install instructions for that specific plugin when the user opens Obsidian (step 6).
+If any plugin failed to download, fall back to manual install instructions when the user opens Obsidian (step 5).
 
-### 4. Install the Claude Code CLI
+### 3. Install the Claude Code CLI
 
 The Claude Code desktop app does NOT install the `claude` command-line tool. We need it so the user can type `claude` inside Obsidian's Terminal plugin. Install it now, before the user opens Obsidian, so everything just works when they get there.
 
@@ -125,7 +111,7 @@ If it fails, don't block the flow — note it and come back to it at step 7:
 
 > "The helper didn't install automatically — we'll sort that out in a minute. Let's keep going."
 
-### 5. Check if Obsidian is installed
+### 4. Check if Obsidian is installed
 
 ```bash
 ls /Applications/Obsidian.app 2>/dev/null || ls "$HOME/AppData/Local/Obsidian" 2>/dev/null || echo "NOT_FOUND"
@@ -137,7 +123,7 @@ If not found, tell them:
 
 Wait for confirmation before continuing.
 
-### 6. Open the vault in Obsidian
+### 5. Open the vault in Obsidian
 
 Tell the user:
 
@@ -146,22 +132,22 @@ Tell the user:
 Print the exact absolute path:
 
 ```bash
-echo "$(cd "$VAULT" && pwd)"
+pwd
 ```
 
 > "Obsidian will show a message about community plugins and trusting the author. Click **'Trust author and enable plugins'**. That's it — I already downloaded and installed the plugins for you. You don't need to install anything manually."
 
-If any plugins failed to download in step 3, walk the user through installing just those specific ones manually:
+If any plugins failed to download in step 2, walk the user through installing just those specific ones manually:
 
 > "One plugin didn't download automatically. Let's install it manually. In Obsidian, go to **Settings** (gear icon, bottom-left) > **Community plugins** > **Browse**. Search for **[plugin name]**, click **Install**, then **Enable**."
 
-### 7. Show them the graph
+### 6. Show them the graph
 
 > "Click the **graph icon** in the left sidebar — it looks like a network of connected dots. That's your knowledge graph. Right now it's mostly empty. We're about to change that."
 
-### 8. Switch to Claude Code inside Obsidian
+### 7. Switch to Claude Code inside Obsidian
 
-The Terminal plugin and CLI are both installed from earlier steps. Now show them how to open it. **Important:** The command palette method is unreliable — use the sidebar icon instead.
+The Terminal plugin and CLI are both installed from earlier steps. Now show them how to open it. **Important:** Use the sidebar icon, not the command palette.
 
 > "Now let's get me running inside Obsidian so you don't have to switch between apps.
 >
@@ -173,7 +159,7 @@ The Terminal plugin and CLI are both installed from earlier steps. Now show them
 >
 > You're now running Claude Code inside Obsidian — notes on top, me at the bottom. You can close the Claude Code desktop app if you want — everything works from here now."
 
-If `claude` returns "command not found" (the CLI install failed in step 4):
+If `claude` returns "command not found" (the CLI install failed in step 3):
 
 > "Looks like the Claude Code helper didn't install correctly earlier. Let's try again. In the terminal that just opened, paste this command:
 >
@@ -183,13 +169,13 @@ If `claude` returns "command not found" (the CLI install failed in step 4):
 
 If they have trouble or prefer not to:
 
-> "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at the vault folder. Everything works the same either way."
+> "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at this folder. Everything works the same either way."
 
-### 9. Ask about existing notes
+### 8. Ask about existing notes
 
 > "Do you have notes from somewhere else you'd like to bring in? Apple Notes, Notion, Evernote, Google Docs, or just a folder of files on your computer? If yes, say `/import` and I'll walk you through it. If you're starting fresh, just drop any thought into the `Inbox` folder and say `/process` when you're ready."
 
-### 10. Celebrate
+### 9. Celebrate
 
 > "You're set up! Your second brain is ready. Here's all you need to remember:
 >

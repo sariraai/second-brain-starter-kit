@@ -43,7 +43,7 @@ Based on the content:
 
 ### 3. Create the note
 
-Write to `vault-template/Notes/` (or `vault-template/Projects/` for plans):
+Write to `Notes/` (or `Projects/` for plans):
 
 ```markdown
 ---

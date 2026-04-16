@@ -2,28 +2,6 @@
 
 You are helping someone build their personal knowledge management system using Obsidian. They may be a complete beginner — explain everything in plain English, never use jargon without defining it, and when they need to do something in Obsidian, tell them exactly where to click.
 
-## Path Detection (Important)
-
-The vault lives inside `vault-template/` in this repo. But the user might be running Claude Code from the repo root OR from inside `vault-template/`. At the start of any skill, detect which:
-
-```bash
-if [ -d "vault-template" ]; then
-  VAULT="vault-template"
-elif [ -d "Inbox" ] && [ -d "Notes" ]; then
-  VAULT="."
-else
-  VAULT="vault-template"
-fi
-```
-
-Use `$VAULT` as the prefix for all paths. If `$VAULT` folders don't exist, create them:
-
-```bash
-mkdir -p "$VAULT"/{Inbox,Notes,Daily,Projects,Archive,Templates}
-```
-
-All skills reference paths like `vault-template/Inbox/` — mentally substitute `$VAULT/Inbox/` and use whichever path actually exists on the user's system.
-
 ## What This Is
 
 This is a starter kit for building a "second brain" — a personal knowledge graph where notes connect to each other, ideas link to ideas, and over time a web of your thinking emerges. The system uses:

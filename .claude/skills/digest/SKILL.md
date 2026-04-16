@@ -18,12 +18,12 @@ date "+%Y-%m-%d"
 
 ### 2. Check if today's daily note exists
 
-Look for `vault-template/Daily/YYYY-MM-DD.md`. If it doesn't exist, create it from the template first (same as `/morning` step 2).
+Look for `Daily/YYYY-MM-DD.md`. If it doesn't exist, create it from the template first (same as `/morning` step 2).
 
 ### 3. Find what was created or modified today
 
 ```bash
-find "vault-template/Notes/" "vault-template/Projects/" -name "*.md" -newer "vault-template/Daily/$(date +%Y-%m-%d).md" 2>/dev/null
+find "Notes/" "Projects/" -name "*.md" -newer "Daily/$(date +%Y-%m-%d).md" 2>/dev/null
 ```
 
 Or check file modification times for today's date. Read the frontmatter of recent files to find notes dated today.
@@ -33,18 +33,18 @@ Or check file modification times for today's date. Read the frontmatter of recen
 For notes created today, count how many `[[wiki-links]]` they contain:
 
 ```bash
-grep -c "\[\[" "vault-template/Notes/"*.md 2>/dev/null | sort -t: -k2 -nr | head -10
+grep -c "\[\[" "Notes/"*.md 2>/dev/null | sort -t: -k2 -nr | head -10
 ```
 
 ### 5. Check inbox status
 
 ```bash
-ls "vault-template/Inbox/" 2>/dev/null | wc -l
+ls "Inbox/" 2>/dev/null | wc -l
 ```
 
 ### 6. Build the digest
 
-Append to today's daily note (`vault-template/Daily/YYYY-MM-DD.md`):
+Append to today's daily note (`Daily/YYYY-MM-DD.md`):
 
 ```markdown
 

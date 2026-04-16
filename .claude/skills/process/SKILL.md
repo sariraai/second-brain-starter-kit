@@ -12,10 +12,10 @@ This is the core skill. Read everything in the Inbox, add structure, create conn
 
 ### 1. Scan the inbox
 
-List all files in `vault-template/Inbox/`:
+List all files in `Inbox/`:
 
 ```bash
-ls "vault-template/Inbox/" 2>/dev/null
+ls "Inbox/" 2>/dev/null
 ```
 
 If the inbox is empty:
@@ -31,10 +31,10 @@ Use the Read tool to read each file. Keep track of:
 
 ### 3. Read existing notes for context
 
-Scan titles and frontmatter of existing notes in `vault-template/Notes/` and `vault-template/Projects/` to find connection opportunities:
+Scan titles and frontmatter of existing notes in `Notes/` and `Projects/` to find connection opportunities:
 
 ```bash
-ls "vault-template/Notes/"*.md 2>/dev/null
+ls "Notes/"*.md 2>/dev/null
 ```
 
 Read frontmatter (first 10 lines) of each to understand what topics already exist.
@@ -84,9 +84,9 @@ Use today's date if no date is apparent from the content or filename.
 **f) Rename the file** to clean kebab-case: `book-notes-atomic-habits.md`
 
 **g) Move the file** to the appropriate folder:
-- Most notes → `vault-template/Notes/`
-- Project-related → `vault-template/Projects/[project-name]/`
-- Daily entry → append to today's daily note in `vault-template/Daily/`
+- Most notes → `Notes/`
+- Project-related → `Projects/[project-name]/`
+- Daily entry → append to today's daily note in `Daily/`
 
 ### 5. Create topic notes if patterns emerge
 

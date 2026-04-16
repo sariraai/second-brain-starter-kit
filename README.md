@@ -24,9 +24,9 @@ Download it at [claude.ai/download](https://claude.ai/download). Install it like
 
 Click the green **Code** button at the top of this page, then click **Download ZIP**. Unzip the folder and put it somewhere easy to find (like your Desktop or Documents folder).
 
-### Step 3: Open the starter kit in Claude Code
+### Step 3: Open the folder in Claude Code
 
-Open the Claude Code desktop app. When it asks you to choose a project folder, click **Open folder** and select the unzipped `second-brain-starter-kit` folder.
+Open the Claude Code desktop app. When it asks you to choose a project folder, click **Open folder** and select the unzipped `second-brain-starter-kit` folder. This same folder will also become your Obsidian vault — one folder for everything.
 
 If Claude Code is already open, look for a folder icon or project name at the top of the window — click it to switch to a different folder.
 

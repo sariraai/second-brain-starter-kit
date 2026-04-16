@@ -16,12 +16,12 @@ Count total files in each folder:
 
 ```bash
 echo "=== Vault Stats ==="
-echo -n "Notes: "; find "vault-template/Notes/" -name "*.md" 2>/dev/null | wc -l
-echo -n "Daily: "; find "vault-template/Daily/" -name "*.md" 2>/dev/null | wc -l
-echo -n "Projects: "; find "vault-template/Projects/" -name "*.md" 2>/dev/null | wc -l
-echo -n "Archive: "; find "vault-template/Archive/" -name "*.md" 2>/dev/null | wc -l
-echo -n "Inbox: "; find "vault-template/Inbox/" -type f 2>/dev/null | wc -l
-echo -n "Total wiki-links: "; grep -r "\[\[" "vault-template/Notes/" "vault-template/Projects/" "vault-template/Daily/" 2>/dev/null | wc -l
+echo -n "Notes: "; find "Notes/" -name "*.md" 2>/dev/null | wc -l
+echo -n "Daily: "; find "Daily/" -name "*.md" 2>/dev/null | wc -l
+echo -n "Projects: "; find "Projects/" -name "*.md" 2>/dev/null | wc -l
+echo -n "Archive: "; find "Archive/" -name "*.md" 2>/dev/null | wc -l
+echo -n "Inbox: "; find "Inbox/" -type f 2>/dev/null | wc -l
+echo -n "Total wiki-links: "; grep -r "\[\[" "Notes/" "Projects/" "Daily/" 2>/dev/null | wc -l
 ```
 
 ### 2. Find orphan notes (no outgoing links)
@@ -29,7 +29,7 @@ echo -n "Total wiki-links: "; grep -r "\[\[" "vault-template/Notes/" "vault-temp
 Notes that contain zero `[[wiki-links]]` — isolated dots in the graph:
 
 ```bash
-grep -rL "\[\[" "vault-template/Notes/"*.md 2>/dev/null
+grep -rL "\[\[" "Notes/"*.md 2>/dev/null
 ```
 
 For each orphan, read the note and suggest 2-3 connections it could have to existing notes. Don't just list them — actually suggest the link:
@@ -41,7 +41,7 @@ For each orphan, read the note and suggest 2-3 connections it could have to exis
 Search for `[[wiki-links]]` across all notes, then check if the target file exists:
 
 ```bash
-grep -roh "\[\[[^]]*\]\]" "vault-template/Notes/" "vault-template/Projects/" "vault-template/Daily/" 2>/dev/null | sort -u
+grep -roh "\[\[[^]]*\]\]" "Notes/" "Projects/" "Daily/" 2>/dev/null | sort -u
 ```
 
 For each unique link found, check if a matching .md file exists anywhere in the vault. Report any dead links:
@@ -53,7 +53,7 @@ For each unique link found, check if a matching .md file exists anywhere in the 
 Check for .md files that don't start with `---`:
 
 ```bash
-for f in "vault-template/Notes/"*.md; do
+for f in "Notes/"*.md; do
   head -1 "$f" 2>/dev/null | grep -q "^---" || echo "$f"
 done
 ```
@@ -75,7 +75,7 @@ Suggest merges or links.
 List all tags used across the vault:
 
 ```bash
-grep -roh "tags: \[.*\]" "vault-template/Notes/" "vault-template/Projects/" 2>/dev/null
+grep -roh "tags: \[.*\]" "Notes/" "Projects/" 2>/dev/null
 ```
 
 Look for:

@@ -21,15 +21,15 @@ date -v-7d "+%Y-%m-%d" 2>/dev/null || date -d "7 days ago" "+%Y-%m-%d"
 
 **Notes created this week:**
 
-Find all notes in `vault-template/Notes/` and `vault-template/Projects/` with dates in the past 7 days. Check frontmatter `date:` fields.
+Find all notes in `Notes/` and `Projects/` with dates in the past 7 days. Check frontmatter `date:` fields.
 
 ```bash
-find "vault-template/Notes/" "vault-template/Projects/" -name "*.md" -mtime -7 2>/dev/null
+find "Notes/" "Projects/" -name "*.md" -mtime -7 2>/dev/null
 ```
 
 **Daily notes from this week:**
 
-Read the 7 daily notes from `vault-template/Daily/` for this week (some may not exist if the user skipped days — that's fine).
+Read the 7 daily notes from `Daily/` for this week (some may not exist if the user skipped days — that's fine).
 
 ### 3. Analyze the week
 
@@ -40,29 +40,29 @@ For each note created this week, read it and track:
 
 ### 4. Find orphan notes
 
-Look for notes in `vault-template/Notes/` that have NO wiki-links (no `[[` in their content) and are not linked FROM any other note:
+Look for notes in `Notes/` that have NO wiki-links (no `[[` in their content) and are not linked FROM any other note:
 
 ```bash
-grep -rL "\[\[" "vault-template/Notes/"*.md 2>/dev/null
+grep -rL "\[\[" "Notes/"*.md 2>/dev/null
 ```
 
 These are orphan notes — isolated dots in the graph. Suggest connections for the top 3-5 orphans.
 
 ### 5. Calculate growth stats
 
-- Total notes in `vault-template/Notes/`
-- Total notes in `vault-template/Projects/`
-- Number of daily notes in `vault-template/Daily/`
+- Total notes in `Notes/`
+- Total notes in `Projects/`
+- Number of daily notes in `Daily/`
 - Approximate total wiki-links across all notes
 
 ```bash
-find "vault-template/Notes/" "vault-template/Projects/" -name "*.md" | wc -l
-grep -r "\[\[" "vault-template/Notes/" "vault-template/Projects/" 2>/dev/null | wc -l
+find "Notes/" "Projects/" -name "*.md" | wc -l
+grep -r "\[\[" "Notes/" "Projects/" 2>/dev/null | wc -l
 ```
 
 ### 6. Create the weekly summary note
 
-Write to `vault-template/Daily/weekly-YYYY-MM-DD.md`:
+Write to `Daily/weekly-YYYY-MM-DD.md`:
 
 ```markdown
 ---

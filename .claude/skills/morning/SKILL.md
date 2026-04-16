@@ -24,22 +24,22 @@ date "+%A, %B %d, %Y"
 
 ### 2. Create today's daily note (if it doesn't exist)
 
-Check if `vault-template/Daily/YYYY-MM-DD.md` exists. If not, create it using the template in `vault-template/Templates/daily-note.md`. Replace `{{date}}` with today's date and `{{day}}` with the day of the week.
+Check if `Daily/YYYY-MM-DD.md` exists. If not, create it using the template in `Templates/daily-note.md`. Replace `{{date}}` with today's date and `{{day}}` with the day of the week.
 
-Write the file to `vault-template/Daily/YYYY-MM-DD.md`.
+Write the file to `Daily/YYYY-MM-DD.md`.
 
 ### 3. Check the inbox
 
 ```bash
-ls "vault-template/Inbox/" 2>/dev/null | wc -l
+ls "Inbox/" 2>/dev/null | wc -l
 ```
 
 ### 4. Check recent notes
 
-Look at the last 5 notes created or modified in `vault-template/Notes/`:
+Look at the last 5 notes created or modified in `Notes/`:
 
 ```bash
-ls -t "vault-template/Notes/"*.md 2>/dev/null | head -5
+ls -t "Notes/"*.md 2>/dev/null | head -5
 ```
 
 ### 5. Check for open tasks
@@ -47,7 +47,7 @@ ls -t "vault-template/Notes/"*.md 2>/dev/null | head -5
 Search recent daily notes and notes for unchecked tasks:
 
 ```bash
-grep -r "\- \[ \]" "vault-template/Daily/" "vault-template/Notes/" 2>/dev/null | head -10
+grep -r "\- \[ \]" "Daily/" "Notes/" 2>/dev/null | head -10
 ```
 
 ### 6. Roll forward incomplete tasks
