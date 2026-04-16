@@ -166,7 +166,15 @@ The Terminal plugin and CLI are both installed from earlier steps. Now show them
 >
 > *(If you've already used Claude Code before and are already logged in, the login and terms steps will be skipped automatically.)*
 >
-> One more thing: you're switching from talking to me in the desktop app to talking to me here in Obsidian. It's the same me — I can read the same files and I know the same commands. You can close the desktop app now. From here on, just open Obsidian and I'm right there at the bottom."
+> One more thing: you're switching from talking to me in the desktop app to talking to me here in Obsidian. It's the same me — I can read the same files and I know the same commands. You can close the desktop app now. From here on, just open Obsidian and I'm right there at the bottom.
+>
+> **Once Claude Code loads in Obsidian, type one of these to get started:**
+>
+> - `/morning` — to create your first daily note
+> - `/import` — if you have notes from another app to bring in
+> - Or just drop a note into the Inbox folder and say `/process` — to see the magic happen
+>
+> That's it. You're set up. Everything from here on happens inside Obsidian."
 
 If `claude` returns "command not found" (the CLI install failed in step 3):
 
@@ -180,16 +188,6 @@ If they have trouble or prefer not to:
 
 > "If the terminal isn't working, you can keep using the Claude Code desktop app — just make sure it's pointed at this folder. Everything works the same either way."
 
-### 8. Ask about existing notes
+### 8. End of setup
 
-> "Do you have notes from somewhere else you'd like to bring in? Apple Notes, Notion, Evernote, Google Docs, or just a folder of files on your computer? If yes, say `/import` and I'll walk you through it. If you're starting fresh, just drop any thought into the `Inbox` folder and say `/process` when you're ready."
-
-### 9. Celebrate
-
-> "You're set up! Your second brain is ready. Here's all you need to remember:
->
-> - **Drop anything** into the Inbox folder — ideas, notes, links, whatever
-> - **Say `/process`** and I'll organize it and create connections
-> - **Say `/morning`** to start your day or `/digest` to end it
->
-> That's the whole system. Capture and process. I handle the rest."
+This is the last step. Do NOT continue with steps 8-9 from the old flow (ask about existing notes, celebrate) — those would happen in the desktop app, but the user is about to switch to Obsidian. The "what to type next" menu above IS the celebration and the handoff. The new Obsidian session will greet them fresh (see CLAUDE.md "First Interaction" section).
